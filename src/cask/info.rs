@@ -1,10 +1,8 @@
-use std::fmt::Display;
+#![allow(dead_code)]
 
-pub struct Info {
-
-}
+pub struct Info;
 impl Info {
-	pub fn get_info<S: AsRef<str> + Display>(cask: S) {
+	pub fn get_info<S: AsRef<str> + std::fmt::Display>(cask: S) {
 		println!("Getting {cask} info");
 	}
 }

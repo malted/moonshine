@@ -52,18 +52,18 @@ pub struct Formula {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Checksum {
+pub struct Checksum {
     sha256: Option<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Urls {
+pub struct Urls {
     head: Option<UrlDetails>,
     stable: UrlDetails,
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct UrlDetails {
+pub struct UrlDetails {
     branch: Option<String>,
     url: Option<String>,
     checksum: Option<String>,
@@ -72,7 +72,7 @@ struct UrlDetails {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Variations {}
+pub struct Variations {}
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
 pub struct Bottle {
@@ -120,7 +120,7 @@ pub struct Versions {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Requirement {
+pub struct Requirement {
 	cask: Option<String>,
 	contexts: Vec<String>,
 	name: String,
@@ -130,7 +130,7 @@ struct Requirement {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Installed {
+pub struct Installed {
 	built_as_bottle: bool,
 	installed_as_dependency: bool,
 	installed_on_request: bool,
@@ -142,14 +142,14 @@ struct Installed {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct InstalledRuntimeDependency {
+pub struct InstalledRuntimeDependency {
 	declared_directly: bool,
 	full_name: String,
 	version: String,
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct Service {
+pub struct Service {
 	keep_alive: Option<ServiceKeepAlive>,
 	// run: Option<Value>, // Either {linux: Vec<String>, macos: Vec<String>} or Vec<String>
 	run_type: Option<String>,
@@ -160,14 +160,14 @@ struct Service {
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct ServiceKeepAlive {
+pub struct ServiceKeepAlive {
 	always: Option<bool>,
 	crashed: Option<bool>,
 	successful_exit: Option<bool>,
 }
 
 #[derive(Debug, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
-struct KegOnlyReason {
+pub struct KegOnlyReason {
 	explanation: String,
 	reason: String,
 }

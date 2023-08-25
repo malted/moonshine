@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use os_info::{Type, Version};
 
 pub fn version() -> String {

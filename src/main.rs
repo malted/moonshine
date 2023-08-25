@@ -21,7 +21,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("search") => {
 			let query = args.get(2).expect("a search query");
 
-			let version = platform::version();
+			// let version = platform::version();
 			let all = formula::formulae::Formulae::get().unwrap();
 			let all_installed = cellar::Cellar::all_installed();
 
@@ -36,7 +36,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 			}
 			let name_max_length = max_length(&search_results.exact, &search_results.near, |f| f.name.len());
 			let tap_max_length = max_length(&search_results.exact, &search_results.near, |f| f.tap.len());
-			let desc_max_length = max_length(&search_results.exact, &search_results.near, |f| f.desc.len());
 
 			for formula in search_results.exact.iter().chain(search_results.near.iter()) {
 				let installed = all_installed.iter().any(|installed| *installed == formula.name);
